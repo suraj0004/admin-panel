@@ -1,53 +1,54 @@
-Introduction
-============
+hello vipin all this is only for you please do the following
 
-[![Build Status](https://img.shields.io/travis/ColorlibHQ/AdminLTE.svg)](https://travis-ci.org/ColorlibHQ/AdminLTE)
-![Bower version](https://img.shields.io/bower/v/adminlte.svg)
-[![npm version](https://img.shields.io/npm/v/admin-lte.svg)](https://www.npmjs.com/package/admin-lte)
-[![Packagist](https://img.shields.io/packagist/v/almasaeed2010/adminlte.svg)](https://packagist.org/packages/almasaeed2010/adminlte)
-[![CDNJS](https://img.shields.io/cdnjs/v/admin-lte.svg)](https://cdnjs.com/libraries/admin-lte)
+1 install git bash in your system
 
-**AdminLTE** -- is a fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. Fits many screen resolutions from small mobile devices to large desktops. Check out the live preview now and see for yourself.
+#  crate a work folder(\xampp\htdocs\your_folder) in your system 
+# open that folder
+# now inside that folder click 'right click' and select "git bash here"
 
-**Download & Preview on [AdminLTE.IO](https://adminlte.io)**
 
-### Looking for Premium Templates?
-**AdminLTE.IO just opened a new premium templates website. Hand picked to ensure the best quality and the most affordable prices. Visit https://themequarry.com for more information.**
+ #set name and email
+2 git config --global user.name "FIRST_NAME LAST_NAME"
+3 git config --global user.email "MY_NAME@example.com"
 
-## Documentation & Installation Guide
-Visit the [online documentation](https://adminlte.io/docs) for the most
-updated guide.
+# see your name and email
+4 git config user.name
+5 git config user.email
 
-!["AdminLTE Presentation"](https://adminlte.io/AdminLTE2.png "AdminLTE Presentation")
+# initails folder
+6 git init
 
-### Contribution
-Contribution are always **welcome and recommended**! Here is how:
+# set repository URL
+6 git remote add origin https://github.com/suraj0004/admin-panel.git
 
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine ```git clone https://github.com/YOUR_USERNAME/AdminLTE.git```
-- Make your changes
-- Create a pull request
+# create your local branch
+7 git checkout -b backend 
 
-#### Contribution Requirements:
+# fetch all data from github (in first tinme it will take few time) 
+8 git pull origin master
 
-- When you contribute, you agree to give a non-exclusive license to AdminLTE.IO to use that contribution in any context as we (AdminLTE.IO) see appropriate.
-- If you use content provided by another party, it must be appropriately licensed using an [open source](http://opensource.org/licenses) license.
-- Contributions are only accepted through Github pull requests.
-- Finally, contributed code must work in all supported browsers (see above for browser support).
+# now all files in your system , 
+9 code .
 
-### License
-AdminLTE is an open source project by [AdminLTE.IO](https://adminlte.io) that is licensed under [MIT](http://opensource.org/licenses/MIT). AdminLTE.IO
-reserves the right to change the license of future releases. Wondering what you can or can't do? View the [license guide](https://adminlte.io/docs/license).
+# in step 9 vs code will open , if you have not vs code open folder manually with our choice editor
+# after doing any work follow given commands to save data in github
 
-### Legacy Releases
-AdminLTE 1.x can be easily upgraded to 2.x using [this guide](https://adminlte.io/themes/AdminLTE/documentation/index.html#upgrade), but if you intend to keep using AdminLTE 1.x, you can download the latest release from the [releases](https://github.com/ColorlibHQ/AdminLTE/releases) section above.
+# this will show you the changes
+10 git status
 
-### Change log
-**For the most recent change log, visit the [releases page](https://github.com/ColorlibHQ/AdminLTE/releases).** We will add detailed release notes to each new release.
+# save changes in your local system
+11 git add .
 
-### Image Credits
-- [Pixeden](http://www.pixeden.com/psd-web-elements/flat-responsive-showcase-psd)
-- [Graphicsfuel](http://www.graphicsfuel.com/2013/02/13-high-resolution-blur-backgrounds/)
-- [Pickaface](http://pickaface.net/)
-- [Unsplash](https://unsplash.com/)
-- [Uifaces](http://uifaces.com/)
+# again see the changes , at this time color change to green
+12 git status
+
+# make your file ready to pushing over github
+13 git commit -m "comments for your work , make sure you will right something here"
+
+# now save/push data to github
+14 git push origin backend
+
+# agian check status, this will show "your branch is up to date" 
+15 git status
+
+
