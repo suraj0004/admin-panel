@@ -28,7 +28,7 @@ $result = $conn->query($sql);
     <section class="content">
     
 
-    <div class="container" style="padding:10px;"> 
+    <div class="" style="padding:10px;"> 
      <div class="row text-right">
       <button class="btn btn-success" onclick="add()" id="add_btn"><i class="fa fa-plus"></i></button>
       <button class="btn btn-danger" onclick="cancel()"  id="close_btn"> <i class="fa fa-close"></i> </button>

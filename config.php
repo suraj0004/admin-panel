@@ -8,10 +8,10 @@ function createConnection()
   global $conn;
     $host = "localhost";
 
- $user = "u401986195_disci";
-//$user = "root";
- $password = "#&^/fr2SGZiK";
-//$password = "";
+//  $user = "u401986195_disci";
+$user = "root";
+ //$password = "#&^/fr2SGZiK";
+$password = "";
  $database = "u401986195_stc";
 //$database = "stc";
   $conn = new mysqli($host, $user, $password,$database);

@@ -6,7 +6,7 @@ include("../config.php");
 // get all school data 
 
 $sql = "SELECT * FROM `schools_data` INNER JOIN school_registration ON schools_data.school_id = school_registration.id WHERE school_registration.doc_verified = 'false' AND school_registration.doc_uploaded = 'true' ";
-$result = $conn->query($sql);
+$result = $conn->query($sql)
 
 ?>
 
@@ -28,7 +28,7 @@ $result = $conn->query($sql);
     <section class="content">
     
 
-    <div class="container" style="padding:10px;"> 
+    <div class="" style="padding:10px;"> 
      <div class="row text-right">
       <button class="btn btn-success" onclick="add()" id="add_btn"><i class="fa fa-plus"></i></button>
       <button class="btn btn-danger" onclick="cancel()"  id="close_btn"> <i class="fa fa-close"></i> </button>
@@ -42,13 +42,14 @@ $result = $conn->query($sql);
          <div class="col-md-4"></div>
          <div class="col-md-4 text-center new_category_form">
          <h2 class="text-center" style="margin-bottom:30px;">Add New Category</h2>
-         <form class="form" method="POST" action="/controllers/sub-category-lvl1.php" >
+         <form class="form" method="POST" action="/controllers/sub-category-lvl1.php" enctype="multipart/form-data">
             <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="category_name">Category Name:</label> </div>
                   <div class="col-md-8"> <input type="text" id="category_name" name="category_name" class="form-control"> </div>
                </div>
-            </div>
+            </div>likh kya likhra
+            ruk
             <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="category_logo">Category Logo:</label> </div>
