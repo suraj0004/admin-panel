@@ -418,21 +418,21 @@ th,td{
         </li>
         <li class="<?= ($page == "Category Lvl 1")?"active":"" ?>" >
           <a href="<?=$siteUrl ?>/pages/category-Lvl-1.php">
-            <i class="fa fa-home"></i> <span>Category Lvl 1</span>
+            <i class="fa fa-home"></i> <span>Category (Lvl 1)</span>
       
           </a>
          
         </li>
         <li class="<?= ($page == "Category Lvl 2")?"active":"" ?>" >
-          <a href="<?=$siteUrl ?>/pages/category-Lvl-1.php">
-            <i class="fa fa-home"></i> <span>Category Lvl 2</span>
+          <a href="<?=$siteUrl ?>/pages/category-Lvl-2.php">
+            <i class="fa fa-home"></i> <span>Sub-Category (Lvl 2)</span>
       
           </a>
          
         </li>
         <li class="<?= ($page == "Category Lvl 3")?"active":"" ?>" >
-          <a href="<?=$siteUrl ?>/pages/category-Lvl-1.php">
-            <i class="fa fa-home"></i> <span>Category Lvl 3</span>
+          <a href="<?=$siteUrl ?>/pages/category-Lvl-3.php">
+            <i class="fa fa-home"></i> <span>Sub-Category (Lvl 3)</span>
       
           </a>
          
