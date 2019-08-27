@@ -4,10 +4,10 @@ hello vipin all this is only for you please do the following
 
 #  crate a work folder(\xampp\htdocs\your_folder) in your system 
 # open that folder
-# now inside that folder click 'right click' and select "git bash here"
+# now inside that folder click 'right click' and select "git bash here".
 
 
- #set name and email
+#set name and email
 2. git config --global user.name "FIRST_NAME LAST_NAME"
 3. git config --global user.email "MY_NAME@example.com"
 
