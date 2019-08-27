@@ -5,7 +5,43 @@ include("../header-n-sidebar.php");
 include("../config.php");
 // get all school data 
 
-$cat_id = $_GET["cat_id"]; 
+$id = $_GET["id"]; 
+$lvl = $_GET["lvl"];
+
+if ($lvl == 2) {
+    $p_sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 "; 
+    $p_result = mysqli_query($conn,$p_sql);  
+}
+
+if ($lvl == 3) {
+    $sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
+$result = mysqli_query($conn,$sql);
+$parent = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  array_push($parent,$row["id"]);
+}
+
+$data = array();
+
+foreach ($parent as $parent_id) {
+    $sql = "SELECT id,cat_name FROM cat WHERE parent_id = '$parent_id' ";
+    $result = mysqli_query($conn,$sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+       $temp = array(
+           "id" => $row["id"],
+           "cat_name" => $row["cat_name"]
+       );
+       array_push($data,$temp);
+    }
+}
+}
+
+
+
+
+$sql = "SELECT * FROM cat WHERE id = '$id' ";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result);
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -34,15 +70,49 @@ $cat_id = $_GET["cat_id"];
          <div class="col-md-4 text-center new_category_form">
          <h2 class="text-center" style="margin-bottom:30px;">Edit Category</h2>
          <form class="form" method="POST" action="/controllers/sub-category-lvl1.php" >
+         <input type="hidden" name="id" value="<?=$row["id"]?>">
             <div class="form-group">
         <?php
-        if (true) {
+        if ($row["parent_id"] != 0 ) {
             ?>
               <div class="row">
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
-                       <option value="">NAN</option>
+                      <?php
+                       if ($lvl == 2) {
+                        while ($p_row = mysqli_fetch_assoc($p_result)) {
+                            if ($p_row["id"] == $row["parent_id"]) {
+                               ?>
+                                 <option selected value="<?=$p_row["id"]?>"><?=$p_row["cat_name"]?></option>
+                               <?php
+                            } else {
+                                ?>
+                              <option value="<?=$p_row["id"]?>"><?=$p_row["cat_name"]?></option>
+                            <?php
+                            }
+                            
+                          
+                        }
+                       } else {
+                        foreach ($data as $key) {
+                            
+                       if ($key["id"] == $row["parent_id"]) {
+                           ?>
+                                <option selected value="<?=$key["id"]?>"><?=$key["cat_name"]?></option>
+                            <?php
+                       } else {
+                           ?>
+                                <option value="<?=$key["id"]?>"><?=$key["cat_name"]?></option>
+                            <?php
+                       }
+                       
+
+                          
+                        }
+                       }
+                       
+                      ?>
                        </select>
                   </div>
                </div>
@@ -58,13 +128,13 @@ $cat_id = $_GET["cat_id"];
                <br>
                <div class="row">
                   <div class="col-md-4"> <label for="category_name">Category Name:</label> </div>
-                  <div class="col-md-8"> <input type="text" id="category_name" name="category_name" class="form-control"> </div>
+                  <div class="col-md-8"> <input type="text" id="category_name" name="category_name" class="form-control" value="<?=$row["cat_name"]?>"> </div>
                </div>
             </div>
             <div class="form-group">
                <div class="row">
-                  <div class="col-md-4"> <label for="category_logo"><img src="/dist/img/avatar.png" height="50px" width="50px"> Logo:</label> </div>
-                  <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control"> </div>
+                  <div class="col-md-4"> <label for="category_logo"><img src="<?=$row["cat_logo"]?>" height="50px" width="50px"> Logo:</label> </div>
+                  <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control" value="<?=$row["cat_logo"]?>"> </div>
                </div>
             </div>
 

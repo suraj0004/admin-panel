@@ -3,9 +3,34 @@ $page = "Category Lvl 2";
 include("../header-n-sidebar.php");
 
 include("../config.php");
-// get all school data 
+
 $sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
 $result = mysqli_query($conn,$sql);
+$parent = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  array_push($parent,$row["id"]);
+}
+
+$data = array();
+
+foreach ($parent as $parent_id) {
+    $sql = "SELECT * FROM cat WHERE parent_id = '$parent_id' ";
+    $result = mysqli_query($conn,$sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+       $temp = array(
+           "id" => $row["id"],
+           "cat_name" => $row["cat_name"],
+           "cat_logo" => $row["cat_logo"],
+           "created_at" => $row["created_at"],
+           "updated_at" => $row["updated_at"]
+       );
+       array_push($data,$temp);
+    }
+}
+
+$sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
+$result = mysqli_query($conn,$sql);
+
 
 ?>
 
@@ -96,27 +121,29 @@ $result = mysqli_query($conn,$sql);
 </thead>
 
 <tbody>
-<tr>
-    <td> 1 </td>
-    <td> Category 1 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
-<tr>
-    <td> 2 </td>
-    <td> Category 2 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
-<tr>
-    <td> 3 </td>
-    <td> Category 3 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
+
+<?php
+$i = 0 ;
+ foreach ($data as $key) {
+     $i++;
+   ?>
+     <tr>
+    <td> <?=$i?></td>
+    <td><?=$key["cat_name"]?></td>
+    <td> <?=$key["created_at"]?> </td>
+    <td><?=$key["updated_at"]?> </td>
+    <td> <a href="category-edit.php?id=<?=$key["id"]?>&lvl=2" class="btn btn-primary"> <i class="fa fa-edit"></i> </a>
+      <button class="btn btn-danger" onclick="del(<?=$key['id']?>)"> <i class="fa fa-trash"></i> </button>  </td>
+</tr>                    
+   <?php
+    }
+ ?>
+
+
+
+
+
+
 </tbody>
 
 </table>
