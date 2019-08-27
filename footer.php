@@ -31,5 +31,3 @@
 
 <script src="<?=$siteUrl ?>/bower_components/moment/moment.js"></script>
 
-</body>
-</html>

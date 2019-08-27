@@ -26,85 +26,62 @@ $result = $conn->query($sql);
 
     <!-- Main content -->
     <section class="content">
-           
-    <!-- <div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div> -->
+    
 
-        <?php if ($result->num_rows == 0) {
-         // echo "<h1 class='text-center'>No New School Requests!</h1>";
-        }
-        else{
-            while ($rows = $result->fetch_assoc()) {
-              ?>
-               
-<!-- <div class="row" style="border-bottom:1px solid grey;padding-bottom:10px;">
-         <div class="col-md-1"></div>
-         <div class="col-md-8 ">
+    <div class="container" style="padding:10px;"> 
+     <div class="row text-right">
+      <button class="btn btn-success" onclick="add()" id="add_btn"><i class="fa fa-plus"></i></button>
+      <button class="btn btn-danger" onclick="cancel()"  id="close_btn"> <i class="fa fa-close"></i> </button>
+     </div>
+     </div>
+     
 
-          
-           <div class="row text-center">
-              <div class="col-md-6" style="margin-top:70px;">
-               <img src="<?php //$siteUrl ?>/edu-joy/asset/img/site-logo.jpeg" class="img-fluid img-circle" height="200" width="200">
-              </div>
-              <div class="col-md-6" style="font-size:18px;">
-                <table class="text-left">
-                    <thead>
-                      <tr>
-                        <th colspan="2"><h2 class="text-center">School Information</h2></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><b> Name:</b></td>
-                        <td><?php //$rows["name"] ?></td>
-                      </tr>
-                      <tr>
-                        <td><b> Email:</b></td>
-                        <td><?php //$rows["email"] ?></td>
-                      </tr>
-                      <tr>
-                        <td><b> Phone:</b></td>
-                        <td><?php //$rows["phone"] ?></td>
-                      </tr>
-                      <tr>
-                        <td><b> Address:</b></td>
-                        <td><?php //$rows["address"] ?></td>
-                      </tr>
-                      <tr>
-                        <td><b> Type:</b></td>
-                        <td><?php //$rows["type"] ?> School</td>
-                      </tr>
-                      <tr>
-                        <td><b> Document:</b></td>
-                        <td><?php //$rows["doc"] ?></td>
-                      </tr>
-                    </tbody>
-                </table>
-              </div>
-              
-           </div>
-<br>
-           <div class="row text-center">
-            
-              <button class="btn btn-danger" onclick='reject(<?=$rows["school_id"]?>)'><i class="fa fa-trash"></i></button>  
-              <button type="button" class="btn btn-success" onclick='approve(<?=$rows["school_id"]?>)'><i class="fa fa-check"></i></button>
-             </div>
+
+     
+     <div class="row" id="new_category">
+         <div class="col-md-4"></div>
+         <div class="col-md-4 text-center new_category_form">
+         <h3 class="text-center" style="margin-bottom:30px;">Add New Sub-Category (Lvl 3)</h3>
+         <form class="form" method="POST" action="/controllers/sub-category-lvl3.php" >
+         <div class="form-group">
+               <div class="row">
+                  <div class="col-md-4"> <label for="parent_category">Parent Sub-Category:</label> </div>
+                  <div class="col-md-8">
+                       <select id="parent_category" name="parent_category" class="form-control"> 
+                       <option value="">NAN</option>
+                       </select>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="row">
+                  <div class="col-md-4"> <label for="category_name">Sub-Category Name:</label> </div>
+                  <div class="col-md-8"> <input type="text" id="category_name" name="category_name" class="form-control"> </div>
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="row">
+                  <div class="col-md-4"> <label for="category_logo">Sub-Category Logo:</label> </div>
+                  <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control"> </div>
+               </div>
+            </div>
+            <div class="text-center"><button class="btn btn-success">Save</button></div>
+         </form>
          </div>
-       </div>
-       <br><br> -->
+     </div>
+  
 
 
-              <?php
-            }
-          }
-        ?>
-<div class="container">
+
+<br><br>
+<div class="container" id="category_list_tabel">
 <div class="table-responsive">
-<table class="table">
+<table class="table table-striped">
 
 <thead>
 <tr>
     <th class="h3"> # </th>
-    <th class="h3"> Category </th>
+    <th class="h3"> Sub-Category (Lvl 3) </th>
     <th class="h3"> Created at </th>
     <th class="h3"> Modified at </th>
     <th class="h3"> Actions </th>
@@ -152,8 +129,11 @@ $result = $conn->query($sql);
 </div>
 
 
-  <script src="/dist/js/custom.js"></script>
+
  <?php
 include("../footer.php");
- ?>
 
+ ?>
+   <script src="/dist/js/custom.js"></script>
+</body>
+</html>
