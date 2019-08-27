@@ -1,9 +1,30 @@
+
 <?php
 $page = "Category Lvl 3";
 include("../header-n-sidebar.php");
 
 include("../config.php");
 // get all school data 
+$sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
+$result = mysqli_query($conn,$sql);
+$parent = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  array_push($parent,$row["id"]);
+}
+
+$data = array();
+
+foreach ($parent as $parent_id) {
+    $sql = "SELECT id,cat_name FROM cat WHERE parent_id = '$parent_id' ";
+    $result = mysqli_query($conn,$sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+       $temp = array(
+           "id" => $row["id"],
+           "cat_name" => $row["cat_name"]
+       );
+       array_push($data,$temp);
+    }
+}
 
 ?>
 
@@ -45,7 +66,13 @@ include("../config.php");
                   <div class="col-md-4"> <label for="parent_category">Parent Sub-Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
-                       <option value="">NAN</option>
+                      <?php
+                    foreach ($data as $key) {
+                        ?>
+                            <option value="<?=$key["id"]?>"><?=$key["cat_name"]?></option>
+                        <?php
+                    }
+                      ?>
                        </select>
                   </div>
                </div>

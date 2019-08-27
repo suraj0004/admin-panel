@@ -4,7 +4,8 @@ include("../header-n-sidebar.php");
 
 include("../config.php");
 // get all school data 
-
+$sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
+$result = mysqli_query($conn,$sql);
 
 ?>
 
@@ -46,7 +47,18 @@ include("../config.php");
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
+<<<<<<< HEAD
                        <option value="1">NAN</option>
+=======
+                           <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                  <option value="<?=$row["id"]?>"><?=$row["cat_name"]?></option>
+                                <?php
+                            }
+                           ?>
+                       
+>>>>>>> ff0295b1159c8e1e5b3d503ed4af4fd36a190201
                        </select>
                   </div>
                </div>
