@@ -1,5 +1,5 @@
 <?php
-$page = "school-request";
+$page = "Category Lvl 1";
 include("../header-n-sidebar.php");
 
 include("../config.php");
@@ -26,7 +26,8 @@ $result = $conn->query($sql);
 
     <!-- Main content -->
     <section class="content">
-          
+           
+    <div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>
 
         <?php if ($result->num_rows == 0) {
           echo "<h1 class='text-center'>No New School Requests!</h1>";
