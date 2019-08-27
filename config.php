@@ -10,7 +10,8 @@ function createConnection()
 
 //  $user = "u401986195_disci";
 $user = "root";
- //$password = "#&^/fr2SGZiK";
+ //$password = "WJMYTGA3vIsc";
+
 $password = "";
  $database = "cat_admin";
 //$database = "stc";

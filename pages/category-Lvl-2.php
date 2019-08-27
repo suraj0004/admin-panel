@@ -40,7 +40,7 @@ include("../config.php");
          <div class="col-md-4"></div>
          <div class="col-md-4 text-center new_category_form">
          <h3 class="text-center" style="margin-bottom:30px;">Add New Sub-Category (Lvl 2)</h3>
-         <form class="form" method="POST" action="/controllers/sub-category-lvl2.php" >
+         <form class="form" method="POST" action="/controllers/sub-category-lvl2.php" enctype="multipart/form-data">
          <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
