@@ -37,7 +37,7 @@ if (!isset( $_SESSION["admin_email"])) {
   <link rel="stylesheet" href="<?=$siteUrl ?>/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?=$siteUrl ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
