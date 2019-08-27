@@ -47,9 +47,7 @@ $result = mysqli_query($conn,$sql);
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
-<<<<<<< HEAD
-                       <option value="1">NAN</option>
-=======
+
                            <?php
                             while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
@@ -58,7 +56,6 @@ $result = mysqli_query($conn,$sql);
                             }
                            ?>
                        
->>>>>>> ff0295b1159c8e1e5b3d503ed4af4fd36a190201
                        </select>
                   </div>
                </div>
