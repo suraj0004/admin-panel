@@ -19,3 +19,18 @@ function reject(_id) {
         window.location.reload();
     });
 }
+
+$("#new_category").hide();
+$("#close_btn").hide();
+function add() {
+    $("#new_category").show();
+    $("#close_btn").show();  
+    $("#add_btn").hide(); 
+    $("#category_list_tabel").hide(); 
+}
+function cancel() {
+    $("#new_category").hide();
+    $("#close_btn").hide();  
+    $("#add_btn").show();  
+    $("#category_list_tabel").show(); 
+}
