@@ -107,7 +107,12 @@ th,td{
     transform: rotate(360deg);
   }
 }
-
+.new_category_form{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:4px 4px lightgrey;
+}
 /* LOADER 2 */
 </style>
   <!-- Google Font -->
