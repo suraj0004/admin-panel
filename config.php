@@ -12,7 +12,7 @@ function createConnection()
 $user = "root";
  //$password = "#&^/fr2SGZiK";
 $password = "";
- $database = "u401986195_stc";
+ $database = "cat_admin";
 //$database = "stc";
   $conn = new mysqli($host, $user, $password,$database);
     if($conn->connect_error)

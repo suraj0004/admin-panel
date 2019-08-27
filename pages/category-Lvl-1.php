@@ -46,8 +46,7 @@ include("../config.php");
                   <div class="col-md-4"> <label for="category_name">Category Name:</label> </div>
                   <div class="col-md-8"> <input type="text" id="category_name" name="category_name" class="form-control"> </div>
                </div>
-            </div>likh kya likhra
-            ruk
+            </div>
             <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="category_logo">Category Logo:</label> </div>
