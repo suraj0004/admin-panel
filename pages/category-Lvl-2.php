@@ -46,7 +46,7 @@ include("../config.php");
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
-                       <option value="">NAN</option>
+                       <option value="1">NAN</option>
                        </select>
                   </div>
                </div>
