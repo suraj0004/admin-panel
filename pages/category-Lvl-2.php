@@ -4,7 +4,8 @@ include("../header-n-sidebar.php");
 
 include("../config.php");
 // get all school data 
-
+$sql = "SELECT id,cat_name FROM cat WHERE parent_id = 0 ";
+$result = mysqli_query($conn,$sql);
 
 ?>
 
@@ -40,13 +41,20 @@ include("../config.php");
          <div class="col-md-4"></div>
          <div class="col-md-4 text-center new_category_form">
          <h3 class="text-center" style="margin-bottom:30px;">Add New Sub-Category (Lvl 2)</h3>
-         <form class="form" method="POST" action="/controllers/sub-category-lvl2.php" >
+         <form class="form" method="POST" action="/controllers/sub-category-lvl2.php" enctype="multipart/form-data">
          <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
-                       <option value="">NAN</option>
+                           <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                  <option value="<?=$row["id"]?>"><?=$row["cat_name"]?></option>
+                                <?php
+                            }
+                           ?>
+                       
                        </select>
                   </div>
                </div>
