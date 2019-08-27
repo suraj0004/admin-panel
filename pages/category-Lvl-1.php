@@ -4,8 +4,6 @@ include("../header-n-sidebar.php");
 
 include("../config.php");
 // get all school data 
-
-
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -64,7 +62,7 @@ include("../config.php");
 <br><br>
 <div class="container" id="category_list_tabel">
 <div class="table-responsive">
-<table class="table table-striped">
+<table class="table table-striped" id="myTable">
 
 <thead>
 <tr>
@@ -77,27 +75,19 @@ include("../config.php");
 </thead>
 
 <tbody>
+  <?php 
+  $get = "SELECT * FROM cat WHERE parent_id = 0 "; 
+  $result = mysqli_query($conn,$get);
+  $i=0;
+  while($data = mysqli_fetch_assoc($result)){ ?>
 <tr>
-    <td> 1 </td>
-    <td> Category 1 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
+    <td> <?php echo $i; ?> </td>
+    <td> <?php echo $data['cat_name']; ?> </td>
+    <td> <?php echo $data['created_at']; ?> </td>
+    <td> <?php echo $data['updated_at']; ?>  </td>
+    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <a href="../controllers/delete_cat.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
 </tr>
-<tr>
-    <td> 2 </td>
-    <td> Category 2 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
-<tr>
-    <td> 3 </td>
-    <td> Category 3 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
+<?php $i++; } ?>
 </tbody>
 
 </table>
@@ -123,5 +113,11 @@ include("../footer.php");
 
  ?>
    <script src="/dist/js/custom.js"></script>
+
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+<!-- <script type="text/javascript">$(document).ready( function () {
+    $('#myTable').DataTable();
+} );</script> -->
 </body>
 </html>
