@@ -5,8 +5,6 @@ include("../header-n-sidebar.php");
 include("../config.php");
 // get all school data 
 
-$sql = "SELECT * FROM `schools_data` INNER JOIN school_registration ON schools_data.school_id = school_registration.id WHERE school_registration.doc_verified = 'false' AND school_registration.doc_uploaded = 'true' ";
-$result = $conn->query($sql);
 
 ?>
 
