@@ -27,7 +27,7 @@ include("header-n-sidebar.php");
             <div class="inner">
               <h3>150</h3>
 
-              <p>New Students</p>
+              <p>New Post</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -42,7 +42,7 @@ include("header-n-sidebar.php");
             <div class="inner">
               <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-              <p>Active students</p>
+              <p>Active user</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -57,7 +57,7 @@ include("header-n-sidebar.php");
             <div class="inner">
               <h3>44</h3>
 
-              <p>School Requests</p>
+              <p>Total Adds</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>

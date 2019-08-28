@@ -8,13 +8,11 @@ function createConnection()
   global $conn;
     $host = "localhost";
 
-//  $user = "u401986195_cat";
-$user = "root";
- //$password = "abcdefg";
+ $user = "u401986195_cat";
 
-$password = "";
- $database = "cat_admin";
-//$database = "u401986195_cat";
+ $password = "ARnkBNy1xdDF";
+
+$database = "u401986195_cat";
   $conn = new mysqli($host, $user, $password,$database);
     if($conn->connect_error)
     {

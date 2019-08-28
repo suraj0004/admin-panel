@@ -106,6 +106,7 @@ foreach ($parent as $parent_id) {
 <tr>
     <th class="h3"> # </th>
     <th class="h3"> Sub-Category (Lvl 3) </th>
+    <th class="h3">Logo</th>
     <th class="h3"> Created at </th>
     <th class="h3"> Modified at </th>
     <th class="h3"> Actions </th>
@@ -113,27 +114,28 @@ foreach ($parent as $parent_id) {
 </thead>
 
 <tbody>
-<tr>
-    <td> 1 </td>
-    <td> Category 1 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
+    <?php
+    $sql = "SELECT * FROM cat WHERE level = '3' ";
+$result = mysqli_query($conn,$sql);
+    $i = 0;
+     while($row = mysqli_fetch_assoc($result))
+     {
+         $i++;
+        ?>
+        <tr>
+    <td> <?=$i?> </td>
+    <td> <?=$row["cat_name"]?> </td>
+      <td> <img src="/controllers/<?=$row["cat_logo"]?>" height="50px" width="50px"> </td>
+    <td>  <?=$row["created_at"]?> </td>
+    <td>  <?=$row["updated_at"]?> </td>
+    <td>  <a href="category-edit.php?id=<?=$row["id"]?>&lvl=3" class="btn btn-primary"> <i class="fa fa-edit"></i> </a>
+    <a href="/controllers/delete.php?id=<?php echo $row['id'];?>&p_id=3"class="btn btn-danger"> <i class="fa fa-trash"></i> </a> </td>
 </tr>
-<tr>
-    <td> 2 </td>
-    <td> Category 2 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
-<tr>
-    <td> 3 </td>
-    <td> Category 3 </td>
-    <td> 4/10/19 </td>
-    <td> 5/11/20 </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <button class="btn btn-danger"> <i class="fa fa-trash"></i> </button>  </td>
-</tr>
+        <?php
+     }
+    ?>
+
+
 </tbody>
 
 </table>
