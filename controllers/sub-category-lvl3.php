@@ -11,7 +11,7 @@ move_uploaded_file($_FILES["category_logo"]["tmp_name"], $location_file);
 // 	header("location: ../pages/category-Lvl-2.php?status=failed");
 // 	die();
 // }
-$sql ="INSERT INTO cat (cat_name,cat_logo,created_at,parent_id) VALUES ('$cat_name','$location_file',now(),'$parent_cat')";
+$sql ="INSERT INTO cat (cat_name,cat_logo,created_at,parent_id,level) VALUES ('$cat_name','$location_file',now(),'$parent_cat','3')";
 if(mysqli_query($conn,$sql)){
 	header("location: ../pages/category-Lvl-3.php");
 }

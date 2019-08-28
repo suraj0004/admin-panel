@@ -114,6 +114,7 @@ $result = mysqli_query($conn,$sql);
 <tr>
     <th class="h3"> # </th>
     <th class="h3"> Sub-Category (Lvl 2) </th>
+    <th class="h3">Logo</th>
     <th class="h3"> Created at </th>
     <th class="h3"> Modified at </th>
     <th class="h3"> Actions </th>
@@ -130,10 +131,11 @@ $i = 0 ;
      <tr>
     <td> <?=$i?></td>
     <td><?=$key["cat_name"]?></td>
+      <td> <img src="/controllers/<?=$key["cat_logo"]?>" height="50px" width="50px"> </td>
     <td> <?=$key["created_at"]?> </td>
     <td><?=$key["updated_at"]?> </td>
     <td> <a href="category-edit.php?id=<?=$key["id"]?>&lvl=2" class="btn btn-primary"> <i class="fa fa-edit"></i> </a>
-      <button class="btn btn-danger" onclick="del(<?=$key['id']?>)"> <i class="fa fa-trash"></i> </button>  </td>
+       <a href="/controllers/delete.php?id=<?php echo $key['id'];?>&p_id=2"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
 </tr>                    
    <?php
     }
