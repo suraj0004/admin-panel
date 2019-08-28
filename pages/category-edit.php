@@ -133,7 +133,7 @@ $row = mysqli_fetch_assoc($result);
             </div>
             <div class="form-group">
                <div class="row">
-                  <div class="col-md-4"> <label for="category_logo"><img src="<?=$row["cat_logo"]?>" height="50px" width="50px"> Logo:</label> </div>
+                  <div class="col-md-4"> <label for="category_logo"><img src="/controllers/<?=$row["cat_logo"]?>" height="50px" width="50px"> Logo:</label> </div>
                   <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control" value="<?=$row["cat_logo"]?>"> </div>
                </div>
             </div>

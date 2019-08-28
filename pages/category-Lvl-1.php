@@ -68,6 +68,7 @@ include("../config.php");
 <tr>
     <th class="h3"> # </th>
     <th class="h3"> Category </th>
+    <th class="h3">Logo</th>
     <th class="h3"> Created at </th>
     <th class="h3"> Modified at </th>
     <th class="h3"> Actions </th>
@@ -78,14 +79,16 @@ include("../config.php");
   <?php 
   $get = "SELECT * FROM cat WHERE parent_id = 0 "; 
   $result = mysqli_query($conn,$get);
-  $i=0;
+  $i=1;
   while($data = mysqli_fetch_assoc($result)){ ?>
 <tr>
     <td> <?php echo $i; ?> </td>
     <td> <?php echo $data['cat_name']; ?> </td>
+    <td> <img src="/controllers/<?=$data["cat_logo"]?>" height="50px" width="50px"> </td>
     <td> <?php echo $data['created_at']; ?> </td>
     <td> <?php echo $data['updated_at']; ?>  </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <a href="../controllers/delete.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
+    <td> <a href="category-edit.php?id=<?=$data["id"]?>&lvl=1" class="btn btn-primary"> <i class="fa fa-edit"></i> </a>
+    <a href="/controllers/delete.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
 </tr>
 <?php $i++; } ?>
 </tbody>
