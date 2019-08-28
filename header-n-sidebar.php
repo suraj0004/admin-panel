@@ -432,6 +432,13 @@ th,td{
           </a>
          
         </li>
+        <li class="<?= ($page == "posts")?"active":"" ?>" >
+          <a href="<?=$siteUrl ?>/pages/posts.php">
+            <i class="fa fa-home"></i> <span>Posts</span>
+      
+          </a>
+         
+        </li>
         <li class="<?= ($page == "Category Lvl 1")?"active":"" ?>" >
           <a href="<?=$siteUrl ?>/pages/category-Lvl-1.php">
             <i class="fa fa-home"></i> <span>Category (Lvl 1)</span>
