@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2019 at 10:17 PM
+-- Generation Time: Aug 28, 2019 at 06:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.13
 
@@ -34,16 +34,20 @@ CREATE TABLE `cat` (
   `cat_logo` varchar(255) NOT NULL,
   `parent_id` int(255) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `level` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cat`
 --
 
-INSERT INTO `cat` (`id`, `cat_name`, `cat_logo`, `parent_id`, `created_at`, `updated_at`) VALUES
-(3, 'user', 'cat_images/COLLEGE.jpg', 0, '2019-08-28 01:41:27', '2019-08-27 20:11:27'),
-(4, 'user', 'cat_images/COLLEGE.jpg', 0, '2019-08-28 01:43:26', '2019-08-27 20:13:26');
+INSERT INTO `cat` (`id`, `cat_name`, `cat_logo`, `parent_id`, `created_at`, `updated_at`, `level`) VALUES
+(5, 'subuser', 'cat_images/5d2ecf12f2dcbcheckjp.jpg', 1, '2019-08-28 02:11:34', '2019-08-27 20:41:34', 0),
+(6, 'root', 'cat_images/5.jpg', 0, '2019-08-28 02:45:25', '2019-08-27 21:15:25', 0),
+(7, 'subuser1', 'cat_images/5d2ed174c9ba2istockphoto.jpg', 6, '2019-08-28 02:46:34', '2019-08-27 21:16:34', 0),
+(8, 'root123', 'cat_images/4.jpg', 7, '2019-08-28 02:48:33', '2019-08-27 21:18:33', 0),
+(9, 'rrt', 'cat_images/5d2ecf12f2dcbcheckjp.jpg', 0, '2019-08-28 03:45:06', '2019-08-27 22:15:06', 0);
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cat`
 --
 ALTER TABLE `cat`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
