@@ -85,7 +85,7 @@ include("../config.php");
     <td> <?php echo $data['cat_name']; ?> </td>
     <td> <?php echo $data['created_at']; ?> </td>
     <td> <?php echo $data['updated_at']; ?>  </td>
-    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <a href="../controllers/delete_cat.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
+    <td> <button class="btn btn-primary"> <i class="fa fa-edit"></i> </button>  <a href="../controllers/delete.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
 </tr>
 <?php $i++; } ?>
 </tbody>
