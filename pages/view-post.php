@@ -1,5 +1,5 @@
 <?php
-$page = "post Edit";
+$page = "post View";
 include("../header-n-sidebar.php");
 
 include("../config.php");
@@ -37,12 +37,12 @@ $cat_3 = $row1["cat_name"];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Post Edit 
+        View Post 
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Post Edit</li>
+        <li class="active">View Post</li>
       </ol>
     </section> <br><br>
 
