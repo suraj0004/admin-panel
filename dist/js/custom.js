@@ -34,3 +34,13 @@ function cancel() {
     $("#add_btn").show();  
     $("#category_list_tabel").show(); 
 }
+ 
+window.temp = "zero";
+function showChild(_id){
+    if (window.temp != "zero") {
+        $("."+window.temp).hide(); 
+    }
+    $("."+_id).show();
+    window.temp = _id;
+    
+}
