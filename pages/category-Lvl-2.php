@@ -112,12 +112,12 @@ $result = mysqli_query($conn,$sql);
 
 <thead>
 <tr>
-    <th class="h3"> # </th>
-    <th class="h3"> Sub-Category (Lvl 2) </th>
-    <th class="h3">Logo</th>
-    <th class="h3"> Created at </th>
-    <th class="h3"> Modified at </th>
-    <th class="h3"> Actions </th>
+    <th class="h4"> # </th>
+    <th class="h4"> Sub-Category (Lvl 2) </th>
+    <th class="h4">Logo</th>
+    <th class="h4"> Created at </th>
+    <th class="h4"> Modified at </th>
+    <th class="h4"> Actions </th>
 </tr>
 </thead>
 

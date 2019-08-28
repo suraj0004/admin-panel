@@ -38,6 +38,7 @@ if (!isset( $_SESSION["admin_email"])) {
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?=$siteUrl ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,6 +69,9 @@ th,td{
   position: fixed;
   top: 40%;
   left:45%;
+}
+#new_category{
+  display: none;
 }
 /* LOADER 1 */
 
@@ -396,7 +400,7 @@ th,td{
           <img src="<?=$siteUrl ?>/dist/img/site-logo.jpeg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Edu Joy</p>
+          <p>Jallwa</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -417,6 +421,13 @@ th,td{
         <li class="<?= ($page == "index")?"active":"" ?>" >
           <a href="<?=$siteUrl ?>/index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+      
+          </a>
+         
+        </li>
+         <li class="<?= ($page == "user")?"active":"" ?>" >
+          <a href="<?=$siteUrl ?>/pages/user.php">
+            <i class="fa fa-home"></i> <span>Users</span>
       
           </a>
          
