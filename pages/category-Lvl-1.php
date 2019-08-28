@@ -66,12 +66,12 @@ include("../config.php");
 
 <thead>
 <tr>
-    <th class="h6"> # </th>
-    <th class="h6"> Category </th>
-    <th class="h6">Logo</th>
-    <th class="h6"> Created at </th>
-    <th class="h6"> Modified at </th>
-    <th class="h6"> Actions </th>
+    <th class="h4"> # </th>
+    <th class="h4"> Category </th>
+    <th class="h4">Logo</th>
+    <th class="h4"> Created at </th>
+    <th class="h4"> Modified at </th>
+    <th class="h4"> Actions </th>
 </tr>
 </thead>
 
