@@ -286,7 +286,7 @@ include("header-n-sidebar.php");
     <div class="pull-right hidden-xs">
       <b></b>
     </div>
-    <strong>Copyright &copy; <a href="">EduJoy</a>.</strong> All rights
+    <strong>Copyright &copy; <a href="">Jallwa</a>.</strong> All rights
     reserved.
   </footer>
   <!-- Control Sidebar -->

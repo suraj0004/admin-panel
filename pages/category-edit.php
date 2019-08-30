@@ -1,5 +1,6 @@
 <?php
-$page = "Category Edit";
+$page = "Category Lvl ".$_GET["lvl"];
+
 include("../header-n-sidebar.php");
 
 include("../config.php");
@@ -39,9 +40,14 @@ foreach ($parent as $parent_id) {
 
 
 
+
 $sql = "SELECT * FROM cat WHERE id = '$id' ";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
+
+$image = $row["cat_logo"];
+$image = explode("/",$image);
+$image = $image[count($image)-1];
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -49,7 +55,7 @@ $row = mysqli_fetch_assoc($result);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Category Edit 
+        Category Edit
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
@@ -69,18 +75,20 @@ $row = mysqli_fetch_assoc($result);
          <div class="col-md-4"></div>
          <div class="col-md-4 text-center new_category_form">
          <h2 class="text-center" style="margin-bottom:30px;">Edit Category</h2>
-         <form class="form" method="POST" action="/controllers/sub-category-lvl1.php" >
+         <form class="form" method="POST" action="/controllers/sub-cat-edit.php" enctype="multipart/form-data">
          <input type="hidden" name="id" value="<?=$row["id"]?>">
             <div class="form-group">
         <?php
         if ($row["parent_id"] != 0 ) {
             ?>
               <div class="row">
+                 
                   <div class="col-md-4"> <label for="parent_category">Parent Category:</label> </div>
                   <div class="col-md-8">
                        <select id="parent_category" name="parent_category" class="form-control"> 
                       <?php
                        if ($lvl == 2) {
+                        
                         while ($p_row = mysqli_fetch_assoc($p_result)) {
                             if ($p_row["id"] == $row["parent_id"]) {
                                ?>
@@ -94,6 +102,7 @@ $row = mysqli_fetch_assoc($result);
                             
                           
                         }
+                        echo '</select><input type="hidden" name="sub-cat" value="2">';
                        } else {
                         foreach ($data as $key) {
                             
@@ -110,10 +119,11 @@ $row = mysqli_fetch_assoc($result);
 
                           
                         }
+                        echo '</select><input type="hidden" name="sub-cat" value="3">';
                        }
                        
                       ?>
-                       </select>
+                       
                   </div>
                </div>
 
@@ -134,7 +144,9 @@ $row = mysqli_fetch_assoc($result);
             <div class="form-group">
                <div class="row">
                   <div class="col-md-4"> <label for="category_logo"><img src="/controllers/<?=$row["cat_logo"]?>" height="50px" width="50px"> Logo:</label> </div>
-                  <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control" value="<?=$row["cat_logo"]?>"> </div>
+                  <div class="col-md-8"> <input type="file" id="category_logo" name="category_logo" class="form-control">
+                   <input type="hidden" value="<?=$image?>" name="current_img">
+                  </div>
                </div>
             </div>
 

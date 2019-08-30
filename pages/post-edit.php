@@ -1,5 +1,5 @@
 <?php
-$page = "post Edit";
+$page = "posts";
 include("../header-n-sidebar.php");
 
 include("../config.php");

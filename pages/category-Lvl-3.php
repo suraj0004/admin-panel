@@ -98,9 +98,9 @@ foreach ($parent as $parent_id) {
 
 
 <br><br>
-<div class="container" id="category_list_tabel">
+<div class="container-fluid" id="category_list_tabel">
 <div class="table-responsive">
-<table class="table table-striped">
+<table class="table table-striped" id="mytable">
 
 <thead>
 <tr>
@@ -161,5 +161,9 @@ include("../footer.php");
 
  ?>
    <script src="/dist/js/custom.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+<script type="text/javascript">$(document).ready( function () {
+    $('#mytable').DataTable();
+} );</script>
 </body>
 </html>

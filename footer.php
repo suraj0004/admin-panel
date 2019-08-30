@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
       <b></b>
     </div>
-    <strong>Copyright &copy; <a href="">EduJoy</a>.</strong> All rights
+    <strong>Copyright &copy; <a href="#">Jallwa</a>.</strong> All rights
     reserved.
   </footer>
   
@@ -30,4 +30,4 @@
 <script src="<?=$siteUrl ?>/dist/js/demo.js"></script>
 
 <script src="<?=$siteUrl ?>/bower_components/moment/moment.js"></script>
-
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

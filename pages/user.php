@@ -75,9 +75,9 @@ session_start();
 
 
 <br><br>
-<div class="container" id="category_list_tabel">
-<div class="table-responsive">
-<table class="table table-striped">
+<div class="container-fluid" id="category_list_tabel">
+<div class="table-responsive" id="tba">
+<table class="table table-striped" id="user_table">
 
 <thead>
 <tr>
@@ -103,8 +103,116 @@ session_start();
     <td> <?php echo $data['created_at']; ?> </td>
     <td> <?php echo $data['update_at']; ?>  </td>
     <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edituser<?php echo $data['id']; ?>"> <i class="fa fa-edit"></i> </button>
-    <a href="/controllers/delete_user.php?id=<?php echo $data['id'];?>&p_id=1"class="btn btn-danger"> <i class="fa fa-trash"></i> </a>  </td>
+    <button data-target="#delete<?php echo $data['id'] ?>" data-toggle="modal" title="Delete" class="btn btn-danger"><i style="" class="fa fa-trash"></i></button>
+    </td>
 </tr>
+<div class="modal fade" id="delete<?php echo $data['id']; ?>">
+
+
+
+    <div class="modal-dialog">
+
+
+
+                      <form action="/controllers/delete_user.php" method="GET">
+
+
+
+
+
+
+
+      <div class="modal-content">
+
+
+
+        <div class="modal-header">
+
+
+
+          
+
+
+
+          <h4 class="modal-title text-center">Remove this Client ?</h4>
+
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="modal-body">
+
+
+
+            <div class="form-group" style="text-align: center;">
+
+                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+
+              <label for="folderName">Are you sure you want to remove this user? This action can't be undone.</label>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div style="text-align:center;" class="modal-footer">
+
+
+
+                  <button type="submit" class="btn btn-danger btn-sm">Confirm</button>
+
+
+
+
+
+
+
+          <button class="btn btn-sm btn-success" data-dismiss="modal" aria-hidden="true">Close</button>
+
+
+
+          </div>
+
+
+
+      </div>
+
+
+
+      <!-- /.modal-content -->
+
+
+
+                        </form>
+
+
+
+    </div>
+
+
+
+    <!-- /.modal-dialog -->
+
+
+
+  </div>
 <div id="edituser<?php echo $data['id']; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -235,7 +343,10 @@ include("../footer.php");
       });
       function get_user(){
       	 $.ajax({url: "../controllers/get_user.php", success: function(result){
-      		$("#tbody").html(result);
+      		$("#tba").html(result);
+      		// $(document).ready( function () {
+    		table_user();
+		// });
     	}});
       }
    </script>
@@ -261,6 +372,11 @@ include("../footer.php");
 		  "hideMethod": "fadeOut"
 		}
 	}
+    </script>
+    <script type="text/javascript">
+    	$(document).ready( function () {
+    	$('#user_table').DataTable();
+	});
     </script>
 <?php
 if(isset($_SESSION['msg'])){  unset($_SESSION['msg']); ?>

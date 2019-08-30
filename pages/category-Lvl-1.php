@@ -60,7 +60,7 @@ include("../config.php");
 
 
 <br><br>
-<div class="container" id="category_list_tabel">
+<div class="container-fluid" id="category_list_tabel">
 <div class="table-responsive">
 <table class="table table-striped" id="myTable">
 
@@ -119,8 +119,8 @@ include("../footer.php");
 
  
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-<!-- <script type="text/javascript">$(document).ready( function () {
+<script type="text/javascript">$(document).ready( function () {
     $('#myTable').DataTable();
-} );</script> -->
+} );</script>
 </body>
 </html>

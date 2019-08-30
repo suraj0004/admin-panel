@@ -1,21 +1,29 @@
 <?php
 
-error_reporting(0);
+
 
 $conn;
 function createConnection()
 {
   global $conn;
-    $host = "localhost";
+$host = "localhost";
 
- // $user = "u401986195_cat";
+// server
+//$user = "u401986195_cat";
 
-  //$password = "ARnkBNy1xdDF";
+//$password = "ARnkBNy1xdDF";
 
- //$database = "u401986195_cat";
-    $user = "root";
-    $database = "cat_admin";
-    $password = "";
+//$database = "u401986195_cat";
+
+
+// local
+$user = "root";
+
+$database = "u401986195_cat";
+
+$password = "";
+
+
   $conn = new mysqli($host, $user, $password,$database);
     if($conn->connect_error)
     {

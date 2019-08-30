@@ -124,7 +124,7 @@ $cat3_res = $conn->query($sql);
 
 
 <br><br>
-<div class="container" id="category_list_tabel">
+<div class="container-fluid" id="category_list_tabel">
 <div class="table-responsive">
 <table class="table table-striped" id="myTable">
 
@@ -166,7 +166,16 @@ $cat3_res = $conn->query($sql);
     <td> <?php echo $i; ?> </td>
     <td> <?php echo $data['title']; ?> </td>
     <td> <img src="/controllers/<?=$data["img"]?>" height="50px" width="50px"> </td>
-    <td> <?php echo $cat_1." / ".$cat_2." / ".$cat_3; ?> </td>
+    <td> <?php if (!empty($cat_1)) {
+        if (!empty($cat_2) && !empty($cat_3) ) {
+        echo $cat_1." / ".$cat_2." / ".$cat_3;
+      }
+      else if (!empty($cat_2)) {
+         echo $cat_1." / ".$cat_2;
+      } else {
+         echo $cat_1;
+      }
+    }?> </td>
     <td> <?php echo $data['created_at']; ?> </td>
     <td> <?php echo $data['updated_at']; ?>  </td>
     <td> 
@@ -204,8 +213,8 @@ include("../footer.php");
 
  
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-<!-- <script type="text/javascript">$(document).ready( function () {
+<script type="text/javascript">$(document).ready( function () {
     $('#myTable').DataTable();
-} );</script> -->
+} );</script>
 </body>
 </html>
